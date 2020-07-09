@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <div class="contents">
+  <ion-row>
+    <ion-input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="from" (keyup)="evaluateCurrencyOne()"></ion-input>
+  </ion-row>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-row>
+    <ion-input type="number" class="value-input" [(ngModel)]="toValue" placeholder="to" (keyup)="evaluateCurrencyTwo()"></ion-input>
+  </ion-row>
+ </div>
+ <!-- end section -->
+
+ <!-- nex section -->
+ <ion-row>
+  <ion-col class="selectors">
+    <select class="select-list" [(ngModel)]="fromCurr" (change)="getexchangeRate()">
+      <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
+    </select>
+  </ion-col>
+
+  <ion-col>
+    <select class="select-list" [(ngModel)]="toCurr" (change)="getexchangeRate()">
+      <option *ngFor="let item of countryCodes" value="{{item}}">{{item}}</option>
+    </select>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-card class="card-view">
+    <ion-card-header class="card-header">
+      <p>{{resultValue}}</p>
+    </ion-card-header>
+    <ion-card-content class="card-contents">
+      <ion-row>
+        <p>{{countryNames.get(fromCurr)}}</p>
+      </ion-row>
+      <ion-row>
+        <p>{{countryNames.get(toCurr)}}</p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-row>
+<!-- end of this section -->
+
 </ion-content>

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey: '4d94e39f9745e87d71d4',
+  urlKey: 'https://free.currconv.com/api/',
 };
 
 /*
