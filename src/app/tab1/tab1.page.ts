@@ -1,60 +1,66 @@
 import { Component } from '@angular/core';
 import { CurrencyServiceService } from '../service/currency-service.service';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  //properties
-  countryCodes: any = [];
-  countryNames = new Map();
-  //
-  fromCurr: any = 'CZK';  //default values
+ //properties
+  fromCurr: any = 'USD';
   toCurr: any = 'NGN';
-  resultValue: any;
+  _outputCurr: any;
+  countryCodes =  [];
+  countryNames = new Map();
   toValue: number;
-  fromValue: number;
+  fromValue: any;
 
   constructor(private currencyserV: CurrencyServiceService) {}
 
-  ngOnInit(){
-    this.getcountryData();
-    this.getexchangeRate();
+  ngOnInit() {
+    this.fetchCountries();
+    this.setExchange();
   }
 
-  // asynchronous function which get coountry code lists
-  async getcountryData(){
-    try{
-    const data = await this.currencyserV.getcountryCurrencies();
-    for(let x in data['results']){
-      this.countryCodes.push(x);
-      this.countryNames.set(x, data['results'][x].currencyName);
+  /* An asynchronous function which retrieves 
+  CountryCode List
+  */
+  async fetchCountries() {
+    try {
+      const res = await this.currencyserV.getCountryCurr();
+      for (let x in res['results']) {
+        this.countryCodes.push(x);
+        this.countryNames.set(x, res['results'][x].currencyName);
+      }
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.log(err)
+    console.log(this.countryNames);
   }
-  console.log(this.countryNames);
-}
- async getexchangeRate(){
-   let from = this.fromCurr;
-   let to = this.toCurr;
-   try{
-  const exchange = await this.currencyserV.getexchangeRate(from, to);
-  let rate = exchange[from + "_" + to].val;
-  this.resultValue = rate;
-   } catch(err){
-    console.log(err);
+
+  async setExchange() {
+    let from = this.fromCurr;
+    let to = this.toCurr;
+    try {
+      const exchangeRate = await this.currencyserV.getExchangeCurr(from, to);
+      let rate = exchangeRate[from + "_" + to].val;
+      this._outputCurr = rate;
+    }
+    catch (err) {
+      console.error(err);
+    }
+    console.log(this._outputCurr);
   }
- }
- //function to calculate the end result
- evaluateCurrencyOne(){
-   this.toValue = this.fromValue * parseFloat(this.resultValue);
- }
- evaluateCurrencyTwo(){
-   this.fromValue = this.toValue / parseFloat(this.resultValue);
-}
 
+  setCurrencyOne() {
+    this.toValue = this.fromValue * parseFloat(this._outputCurr );
+    console.log('Final Value: ' + this.toValue);
+  }
 
+  setCurrencyTwo() {
+    this.fromValue = this.toValue / parseFloat(this._outputCurr);
+    console.log('Final Value: ' + this.toValue);
+  }
 }

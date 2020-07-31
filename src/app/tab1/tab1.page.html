@@ -1,53 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color = "primary" class = "header">
+    <!-- <button>
+      <ion-button>
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+    </button> -->
     <ion-title>
-      Home
+      Currency Converter
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
- <div class="contents">
-  <ion-row>
-    <ion-input type="number" class="value-input" [(ngModel)]="fromValue" placeholder="from" (keyup)="evaluateCurrencyOne()"></ion-input>
+<ion-content padding>
+  <!-- #region value -->
+  <ion-row justify-content-center margin-buttom>
+    <ion-img src="assets/imgs/currency-logo.jpg" style = "height:230px" ></ion-img>
   </ion-row>
+  <div class="currency-contents">
+    <ion-row >
+      <ion-input class="input-value" type="number"  [(ngModel)]="fromValue" placeholder="Enter amount... " (keyup)="setCurrencyOne()"></ion-input>
+      <ion-col class="select">
+        <select class="select-elements" [(ngModel)]="fromCurr" (change)="setExchange()">
+          <option *ngFor="let item of countryCodes" selected value="{{item }}">{{item }}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <!-- <button>
+      <ion-button color="light">
+        <ion-icon name="swap-horizontal-outline"></ion-icon>
+      </ion-button>
+    </button> -->
+    <ion-row>
+      <ion-input class="input-value" type="number"  [(ngModel)]="toValue" placeholder="Enter amount..." (keyup)="setCurrencyTwo()" color = "danger"></ion-input>
+      <ion-col>
+        <select class="select-elements" [(ngModel)]="toCurr" (change)="setExchange()">
+          <option *ngFor="let item of countryCodes" value="{{item}}">{{item}}</option>
+        </select>
+      </ion-col>
+    </ion-row>
+  </div>
+  <!-- #endregion --> 
 
+  <!-- display output region -->
   <ion-row>
-    <ion-input type="number" class="value-input" [(ngModel)]="toValue" placeholder="to" (keyup)="evaluateCurrencyTwo()"></ion-input>
+    <ion-card class="card-output">
+      <ion-card-content class="card-contents">
+        <ion-row>
+          <p>1 {{countryNames.get(fromCurr)}} equals</p>
+        </ion-row>
+        <ion-row>
+          <p>{{_outputCurr}} {{countryNames.get(toCurr)}} </p>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-row>
- </div>
- <!-- end section -->
-
- <!-- nex section -->
- <ion-row>
-  <ion-col class="selectors">
-    <select class="select-list" [(ngModel)]="fromCurr" (change)="getexchangeRate()">
-      <option *ngFor="let item of countryCodes" selected value="{{item}}">{{item}}</option>
-    </select>
-  </ion-col>
-
-  <ion-col>
-    <select class="select-list" [(ngModel)]="toCurr" (change)="getexchangeRate()">
-      <option *ngFor="let item of countryCodes" value="{{item}}">{{item}}</option>
-    </select>
-  </ion-col>
-</ion-row>
-
-<ion-row>
-  <ion-card class="card-view">
-    <ion-card-header class="card-header">
-      <p>{{resultValue}}</p>
-    </ion-card-header>
-    <ion-card-content class="card-contents">
-      <ion-row>
-        <p>{{countryNames.get(fromCurr)}}</p>
-      </ion-row>
-      <ion-row>
-        <p>{{countryNames.get(toCurr)}}</p>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-</ion-row>
-<!-- end of this section -->
+  <!-- #endregion -->
 
 </ion-content>
