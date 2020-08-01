@@ -5,9 +5,6 @@ $colors: (
   light:      #f3f3f3,
   dark:       #222
 );
-body{
-    color: red;
-}
 .header{
     text-align: center;
     text-transform: uppercase;
@@ -23,6 +20,11 @@ $font-secondary: Open Sans, 'sans-serif';
     font-style: $font-secondary;
     font-weight: bold;
     text-transform: uppercase;
+}
+.logo{
+    justify-content: center;
+    margin-bottom: 5px;
+    height: 250px;
 }
 
 .currency-contents {
@@ -50,18 +52,6 @@ $font-secondary: Open Sans, 'sans-serif';
     font-family: Arial, Helvetica, sans-serif;
     max-height: 90%;
 }
-// .value-input {
-//     font: 25px $font-stack;
-//     font-weight: 300;
-//     margin: 5% 2.5%;
-//     width: 100%;
-//     padding: 0 3%;
-//     color: #222;
-//     border-radius: 7px;
-//     box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
-//     border: solid 0.5px rgba(236, 236, 236, 0.65);
-//     background-color: #ffffff;
-// }
 
 .select-list {
     appearance: none;    
@@ -121,4 +111,10 @@ $font-secondary: Open Sans, 'sans-serif';
     font-size: 18px;
     font-weight: 200;
     font-family: Arial, Helvetica, sans-serif;
+}
+.statemet{
+    text-align:left;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 50;
 }

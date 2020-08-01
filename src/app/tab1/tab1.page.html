@@ -12,8 +12,8 @@
 </ion-header>
 <ion-content padding>
   <!-- #region value -->
-  <ion-row justify-content-center margin-buttom>
-    <ion-img src="assets/imgs/currency-logo.jpg" style = "height:230px" ></ion-img>
+  <ion-row class = "logo">
+    <ion-img src="assets/imgs/currency-logo.jpg"  ></ion-img>
   </ion-row>
   <div class="currency-contents">
     <ion-row >
@@ -24,11 +24,7 @@
         </select>
       </ion-col>
     </ion-row>
-    <!-- <button>
-      <ion-button color="light">
-        <ion-icon name="swap-horizontal-outline"></ion-icon>
-      </ion-button>
-    </button> -->
+
     <ion-row>
       <ion-input class="input-value" type="number"  [(ngModel)]="toValue" placeholder="Enter amount..." (keyup)="setCurrencyTwo()" color = "danger"></ion-input>
       <ion-col>
@@ -50,6 +46,9 @@
         <ion-row>
           <p>{{_outputCurr}} {{countryNames.get(toCurr)}} </p>
         </ion-row>
+        <section class="statemet">
+          <!-- <p>Data provided by Morningstar for Currency and Coinbase for Cryptocurrency</p> -->
+        </section>
       </ion-card-content>
     </ion-card>
   </ion-row>

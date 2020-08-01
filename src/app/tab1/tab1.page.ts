@@ -15,7 +15,7 @@ export class Tab1Page {
   countryCodes =  [];
   countryNames = new Map();
   toValue: number;
-  fromValue: any;
+  fromValue: number;
 
   constructor(private currencyserV: CurrencyServiceService) {}
 
