@@ -3,12 +3,9 @@
 ## 🚀 General Information
 
 # Sample Outputs
- ![](imgs/img1.JPG)
-
-  ![](imgs/img2.JPG)
-
-   ![](imgs/img3.JPG)
-
+ ![](imgs/img1.JPG)  ![](imgs/img2.JPG)
+ ![](imgs/img3.JPG)
+ 
 # Requirements
 Node 10+
 Npm 6+
@@ -27,11 +24,11 @@ $ ionic build
 $ ionic serve
 
 # Key Notes
-Data binding
-Event binding
-HTTPClient
-JSON Mapping
-Asynchronous method
+* Data binding
+* Event binding
+* HTTPClient
+* JSON Mapping
+* Asynchronous implementation
 
 # Contact
 Repo created by <a href="https://github.com/Mbboutidem">Mbuotidem</a>
