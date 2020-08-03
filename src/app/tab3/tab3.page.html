@@ -1,21 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color = "primary">
     <ion-title>
       Contact Info
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <div>
-    <section>
-      <ion-img class="" src=""  style ="height: 150"></ion-img>
-    <h2>Andriod App Developer</h2>
+    <section class="img">
+      <ion-img class="" src="assets/imgs/contact-logo.jpg"></ion-img>
+    </section>
+    <section >
+      <div class="app-info">
+        <p>Currency <span>Converter </span>App</p>
+      </div>
     </section>
     <section>
-      <ion-item class="">
-        <p>Contact No,</p>
-      </ion-item>
+      <div class="info">
+        <ion-icon name="call-outline"></ion-icon>
+      <ion-label class="label">
+       <p> +420********* </p>
+      </ion-label>
+    </div>
+       <div class="info">
+        <ion-icon name="mail-outline"></ion-icon>
+      <ion-label class="label" >
+        <p>mbuotidemarchibong1@gmail.com</p>
+      </ion-label>
+    </div>
+      <div class="info">
+        <ion-icon name="logo-github"></ion-icon>
+      <ion-label class="label" >
+        <p>A link to my <a href="https://github.com/Mbboutidem/Currency-Converter-with-Ionic-5-and-Angular-9" target="_blank">git</a> </p>
+      </ion-label>
+    </div>
+
     </section>
   </div>
 </ion-content>

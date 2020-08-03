@@ -36,9 +36,19 @@ $font-secondary: Open Sans, 'sans-serif';
     font-weight: 200;
     border-radius: 7px;
     font-size: 18px;
-    padding-right: 50px;  
+    padding-right: 50px; 
+    background-color: blue($color: #000000);
 
     //color: rgb(8, 8, 8);
+}
+// ion-input{
+//     color: green;
+// }
+.select{
+    padding-right: 50px;
+    left: 80px;
+
+
 }
 .select-elements{
     font-weight: 200;
@@ -51,21 +61,7 @@ $font-secondary: Open Sans, 'sans-serif';
     border-radius: 6px;
     font-family: Arial, Helvetica, sans-serif;
     max-height: 90%;
-}
-
-.select-list {
-    appearance: none;    
-    margin: 5% auto;
-    padding: 15px;
-    display: block;
-    box-shadow: 0 10px 10px 0 rgba(34, 34, 34, 0.404);
-    background-color: #9700ed;
-    border: 0 transparent;
-    border-radius: 10px;
-    font-family: $font-stack;
-    font-weight: 300;
-    font-size: 40px;
-    color: #f3f3f3;
+    position: absolute;
 }
 
 .selectors {

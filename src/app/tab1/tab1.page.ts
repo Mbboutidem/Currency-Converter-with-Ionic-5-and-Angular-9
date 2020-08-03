@@ -16,9 +16,13 @@ export class Tab1Page {
   countryNames = new Map();
   toValue: number;
   fromValue: number;
+  currentDate: any;
 
-  constructor(private currencyserV: CurrencyServiceService) {}
-
+  constructor(private currencyserV: CurrencyServiceService) 
+  {
+    this.currentDate = new Date();
+    // this.getDateTimeFormat()
+  }
   ngOnInit() {
     this.fetchCountries();
     this.setExchange();
@@ -62,5 +66,9 @@ export class Tab1Page {
   setCurrencyTwo() {
     this.fromValue = this.toValue / parseFloat(this._outputCurr);
     console.log('Final Value: ' + this.toValue);
+  }
+  //set time stamp
+  getDateTimeFormat(){
+    this.currentDate = new Date();
   }
 }

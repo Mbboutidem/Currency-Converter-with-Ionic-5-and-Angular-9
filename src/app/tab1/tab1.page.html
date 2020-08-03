@@ -15,9 +15,17 @@
   <ion-row class = "logo">
     <ion-img src="assets/imgs/currency-logo.jpg"  ></ion-img>
   </ion-row>
+  <!-- <ion-item>
+    <ion-label>Time Stamp</ion-label>
+    <ion-datetime displayFormat= "MMM DD, YYYY HH:mm" ></ion-datetime>
+  </ion-item> -->
+  <ion-item >
+    <ion-label >Time Stamp</ion-label>
+    <p>{{currentDate}}</p>
+  </ion-item>
   <div class="currency-contents">
     <ion-row >
-      <ion-input class="input-value" type="number"  [(ngModel)]="fromValue" placeholder="Enter amount... " (keyup)="setCurrencyOne()"></ion-input>
+      <ion-input  class="input-value" type="number"  [(ngModel)]="fromValue" placeholder="Enter amount... " (keyup)="setCurrencyOne()"></ion-input>
       <ion-col class="select">
         <select class="select-elements" [(ngModel)]="fromCurr" (change)="setExchange()">
           <option *ngFor="let item of countryCodes" selected value="{{item }}">{{item }}</option>
@@ -27,7 +35,7 @@
 
     <ion-row>
       <ion-input class="input-value" type="number"  [(ngModel)]="toValue" placeholder="Enter amount..." (keyup)="setCurrencyTwo()" color = "danger"></ion-input>
-      <ion-col>
+      <ion-col class="select">
         <select class="select-elements" [(ngModel)]="toCurr" (change)="setExchange()">
           <option *ngFor="let item of countryCodes" value="{{item}}">{{item}}</option>
         </select>

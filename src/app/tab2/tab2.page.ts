@@ -15,20 +15,32 @@ export class Tab2Page {
   _resultValue: any;
   fromValue: number;
   toValue: number;
+  currentDate: Date;
 
-  constructor(private currencyserV: CurrencyServiceService) {}
+  constructor(private currencyserV: CurrencyServiceService) 
+  {this.currentDate = new Date();}
 
   ngOnInit(){
     this.fetchCountryData();
     this.fetchExchange();
+    this.time();
 
   }
+  time(){
+    this.currencyserV.getCountryCurrt().subscribe(data =>{
+      console.log(data);
+    })
+  }
    async fetchCountryData(){
-     const resp = await this.currencyserV.getCountryCurr();
+     try {
+      const resp = await this.currencyserV.getCountryCurr();
      for(let y in resp["results"]){
        this.countryCodes.push(y);
-       this.countryNames.set(y, resp["results"][y].countryName);
+       this.countryNames.set(y, resp["results"][y].currencyName);
      }
+    }catch (err){
+      console.log(err)
+    }
      console.log(this.countryNames);
   
   }

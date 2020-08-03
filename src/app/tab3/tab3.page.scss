@@ -1,0 +1,48 @@
+$colors: (
+  primary:    #5f04c0,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f3f3f3,
+  dark:       #222
+);
+// ion-content{
+//   text-align: center;
+//   color: blueviolet;
+// }
+ion-toolbar{
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #5f04c0;
+}
+.img{
+  margin-top: 40px;
+  height: 250;
+}
+.app-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  margin-bottom: 30px;
+  // font-style: normal;
+}
+span{
+  color: brown;
+}
+.info{
+  display: flex;
+  margin-left: 30px;
+  text-align: center;
+  font-weight: 100;
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.info .p{
+  color: red;
+  justify-content: center;
+}

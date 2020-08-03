@@ -19,5 +19,8 @@ export class CurrencyServiceService {
 getExchangeCurr(from: String, to: String){
     return this._http.get(`${urlKey}v7/convert?q=${from}_${to}&compact=y&apiKey=${apiKey}`).toPromise();
   }
+  getCountryCurrt() {
+    return this._http.get(`${urlKey}v7/currencies?apiKey=${apiKey}`);            
+}
 
 }
