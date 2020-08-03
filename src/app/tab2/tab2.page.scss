@@ -5,16 +5,24 @@ $colors: (
   light:      #f3f3f3,
   dark:       #222
 );
-
-.header{
-    background-color: #5f04c0;
-    text-transform: uppercase;
-    text-align: center;
+ion-toolbar{
+  text-align: center;
+  text-transform: uppercase;
+  --color: #f3f3f3;
+  --background: #463738;
 }
 .currency-contents {
   margin: 10% 0 0 0;
   text-align: left;
   margin: 0;
+}
+.set-time{
+  font-size: small;
+  font-family: sans-serif;
+  text-align: left;
+  font-weight: 100;
+  padding-right: 50px;
+  margin-right: 30;
 }
 .input-value{
   font-weight: 200;

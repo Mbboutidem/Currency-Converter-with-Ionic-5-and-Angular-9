@@ -5,11 +5,20 @@ $colors: (
   light:      #f3f3f3,
   dark:       #222
 );
-.header{
+ion-toolbar{
     text-align: center;
     text-transform: uppercase;
+    --color: #f3f3f3;
+    --background: #463738;
+  }
+.set-time{
+    font-size: small;
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: 100;
+    padding-right: 50px;
+    margin-right: 30;
 }
-
 $font-stack: Roboto , 'sans-serif';
 $font-secondary: Open Sans, 'sans-serif'; 
 
@@ -41,9 +50,7 @@ $font-secondary: Open Sans, 'sans-serif';
 
     //color: rgb(8, 8, 8);
 }
-// ion-input{
-//     color: green;
-// }
+
 .select{
     padding-right: 50px;
     left: 80px;
